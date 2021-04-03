@@ -1,0 +1,208 @@
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+void sorte(int a,int b,int c)
+{
+    if(a<b && b<c)
+    {
+        cout<<a<<endl;
+        cout<<b<<endl;
+        cout<<c<<endl;
+    }
+    if(a<c && c<b)
+    {
+        cout<<a<<endl;
+        cout<<c<<endl;
+        cout<<b<<endl;
+    }
+    if(c<a && a<b)
+    {
+        cout<<c<<endl;
+        cout<<a<<endl;
+        cout<<b<<endl;
+    }
+    if(b<a && a<c)
+    {
+        cout<<b<<endl;
+        cout<<a<<endl;
+        cout<<c<<endl;
+    }
+    if(b<c && c<a)
+    {
+        cout<<b<<endl;
+        cout<<c<<endl;
+        cout<<a<<endl;
+    }
+    if(c<b && b<a)
+    {
+        cout<<c<<endl;
+        cout<<b<<endl;
+        cout<<a<<endl;
+    }
+}
+int main()
+{
+    cout<<"Hello World"<<endl;
+    sorte(10,5,9);
+    cout<<endl;
+    return 0;
+}
+===============================
+Your Math’s teacher told you that there are happy numbers in positive integers. You set
+forth to find them out. After spending hours on it, you realize that this process is far too
+tedious to be done by hand. Your programming teacher suggests that this is an easy
+problem to solve and just a few lines of code will help determine if a given number is Happy
+or not. You are also a good programmer, so you begin writing code to solve this problem. A
+number is Happy if it is equal to the sum of all its proper divisors. For example, the number
+6 has proper divisors 1, 2 and 3. The sum of these divisors is equal to 6 hence, 6 is a Happy
+number. On the other hand, the number 30 has proper divisors 1, 2, 3, 5, 6, 10 and 15. The
+sum of these divisors is 42 hence, 30 is not a happy number.
+You are required to get a number from the user. Find out if the given number is Happy or
+not. Make sure the user only enters a positive value greater than 1. Display an error
+message and prompt the user to re-enter the number if the input does not fulfill the
+aforementioned conditions.
+Examples:
+Example 1:
+Enter a number: 27
+27 is not a happy number.
+Example 2:
+Enter a Number: 28
+28 is a happy number.
+Example 3:
+Enter a Number: -50
+Please enter positive Integer.*/
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	
+    int a;
+	int sum=0;
+	int choice;
+	do
+	{
+		cout<<"Press 1). to check number "<<endl;
+		cout<<"Press 0). to close the program"<<endl;
+		cin>>choice;
+		if(choice==1)
+		{
+			cout<<"Enter the Number to check :: ";
+			cin>>a;
+			if(a>=0)
+			{
+   			 	for(int i=1;i<a;i++)
+   				{
+       				if (a % i == 0)
+       			 	{
+						sum=sum+i;
+     		   		}
+    			}
+				if(a==sum)
+				{
+					cout<<a<<" is a Happy Number !"<<endl;
+				}
+				else if(a!=sum)
+				{
+					cout<<a<<" is not a Happy Number !"<<endl;
+				}
+			}
+			else
+			{
+				cout<<"Please Enter a Positive Number "<<endl;
+			}			
+		}
+		else
+		{
+			cout<<"Invalide Condition "<<endl;
+		}
+	} while (choice!=0);
+	
+    return 0;
+}
+====================================
+#include <iostream>
+#include<math.h>
+using namespace std;
+void count(int a)
+{
+    for(int i=1;i<=a;i++)
+    {
+        float x=1/(pow(i,i));
+        cout<<1<<"/"<<i<<"^"<<i<<"="<<x<<endl;
+    }
+}
+int main()
+{
+    int a;
+    cout<<"enter a :: ";
+    cin>>a;
+    count(a);
+
+    return 0;
+}
+=======================================================
+#include <iostream>
+#include <string>
+using namespace std;
+void check(int a)
+{
+    int sum=0;
+             for(int i=1;i<a;i++)
+   				{
+       				if (a % i == 0)
+       			 	{
+						sum=sum+i;
+     		   		}
+    			}
+				if(a==sum)
+				{
+					cout<<a<<" is a Happy Number !"<<endl;
+				}
+				else if(a!=sum)
+				{
+					cout<<a<<" is not a Happy Number !"<<endl;
+				}
+}
+int main()
+{
+	
+    int a;
+	int sum=0;
+	int choice;
+	do
+	{
+		cout<<"Press 1). to check number "<<endl;
+		cout<<"Press 0). to close the program"<<endl;
+		cin>>choice;
+		if(choice==1)
+		{
+			cout<<"Enter the Number to check :: ";
+			cin>>a;
+			if(a>=0)
+			{
+   			 	check(a);
+			}
+			else
+			{
+				cout<<"Please Enter a Positive Number "<<endl;
+			}			
+		}
+		else
+		{
+			cout<<"Invalide Condition "<<endl;
+		}
+	} while (choice!=0);
+	
+    return 0;
+}
+================================================
