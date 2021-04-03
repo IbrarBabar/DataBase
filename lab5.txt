@@ -1,0 +1,38 @@
+SELECT Subqueries
+
+SELECT TICKET_NO, TICKET_TYPE, TICKET_PRICE
+FROM TICKET
+WHERE TICKET_PRICE >= (SELECT AVG(TICKET_PRICE) FROM TICKET);
+
+pic1
+--------------------------
+IN Subqueries
+
+SELECT DISTINCT EMP_NUM, EMP_LNAME, EMP_FNAME, PARK_NAME
+FROM EMPLOYEE NATURAL JOIN HOURS NATURAL JOIN
+ATTRACTION NATURAL JOIN THEMEPARK
+WHERE PARK_CODE IN (SELECT THEMEPARK.PARK_CODE FROM
+THEMEPARK WHERE PARK_NAME LIKE '%Fairy%');
+
+pic2
+---------------------------
+HAVING Subqueries
+
+SELECT PARK_CODE, SUM(LINE_QTY)
+FROM SALES_LINE NATURAL JOIN TICKET
+GROUP BY PARK_CODE
+HAVING SUM(LINE_QTY) > (SELECT AVG(LINE_QTY) FROM SALES_LINE);
+
+pic3
+---------------------------------
+Task 5.2
+
+select emp_fname,emp_lname,sum(hours_per_attract)
+    -> from employee natural join hours
+    -> where date_worked like "2007-05-%"
+    -> group by emp_fname,emp_lname,date_worked
+    -> having sum(hours_per_attract) > (select avg(hours_per_attract) from hours);
+
+pic4
+----------------------------------
+
