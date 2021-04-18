@@ -62,3 +62,39 @@ labs.
 ------------------------------------------------
 Solution::
 
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+<?php if (isset($_GET['form_submitted'])){
+//this code is executed when the form is submitted
+?>
+<h2>Thank You <?php echo "For registring Themepark"; ?> </h2>
+<p>You have been registered as
+    <?php echo "<br />";  ?>
+    <?php echo "Park_Code : " . $_GET['Park_Code'] . '   '.  "Park_Name : " . $_GET['Park_Name'];?>
+    <?php echo "<br />";  ?>
+    <?php echo  "Park_City : " . $_GET['Park_City'] . '   ' .  "Park_Country : " . $_GET['Park_Country']; ?>
+</p>
+<p>Go <a href="/database/task1.php">back</a> to the form</p>
+<?php }
+else { ?>
+    <h2>Theme Park Registration</h2>
+    <form action="task1.php" method="GET">
+        Park_code:
+        <input type="text"  placeholder="Park Code" name="Park_Code">
+         Park Name:
+        <input type="text" placeholder="Park Name" name="Park_Name">
+        <br> Park City:
+        <input type="text" placeholder="Park City" name="Park_City">
+         Park Country:
+        <input type="text" placeholder="Park Country" name="Park_Country">
+        <input type="hidden" name="form_submitted" value="1" />
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+<?php } ?>
+</body>
+</html>
+
