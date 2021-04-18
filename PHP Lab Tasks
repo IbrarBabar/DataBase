@@ -75,7 +75,27 @@ Solution::
     <?php echo "<br />";  ?>
     <?php echo "Park_Code : " . $_GET['Park_Code'] . '   '.  "Park_Name : " . $_GET['Park_Name'];?>
     <?php echo "<br />";  ?>
-    <?php echo  "Park_City : " . $_GET['Park_City'] . '   ' .  "Park_Country : " . $_GET['Park_Country']; ?>
+    <?php echo  "Park_City : " . $_GET['Park_City'] . '   ' .  "Park_Country : " . $_GET['Park_Country'];
+
+
+    $username = 'root';
+    $password = '';
+    try {
+        $conn = new PDO("mysql:host=localhost;dbname=themepark", $username, $password);
+// set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected successfully";
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
+
+    $Park_Code = $_GET["Park_Code"];
+    $Park_Name = $_GET["Park_Name"];
+    $Park_City = $_GET["Park_City"];
+    $Park_Country = $_GET["Park_Country"];
+
+    $conn->query("insert into themepark values('$Park_Code ',' $Park_Name ',' $Park_City ',' $Park_Country')");
+    
 </p>
 <p>Go <a href="/database/task1.php">back</a> to the form</p>
 <?php }
