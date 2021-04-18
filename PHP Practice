@@ -136,7 +136,8 @@ print_r($result);
 
 
 -------------------------------------------------------------------------------------------------------------
-Normal form
+Normal form using POST method
+
 <html>
 <head>
     <title>Registration Form</title>
@@ -184,4 +185,42 @@ else { ?>
 <?php } ?>
 </body>
 </html>
+
+
+--------------------------------------------------------------
+Registration from using GET method
+
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+<?php if (isset($_GET['form_submitted'])){
+//this code is executed when the form is submitted
+?>
+<h2>Thank You <?php echo $_GET['firstname']; ?> </h2>
+<p>You have been registered as
+    <?php echo $_GET['firstname'] . ' ' . $_GET['lastname']; ?>
+</p>
+<p>Go <a href="/database/task1.php">back</a> to the form</p>
+<?php }
+else { ?>
+    <h2>Registration Form</h2>
+    <form action="task1.php" method="GET">
+        First name:
+        <input type="text" name="firstname">
+        <br> Last name:
+        <input type="text" name="lastname">
+        <input type="hidden" name="form_submitted" value="1" />
+        <input type="submit" value="Submit">
+    </form>
+<?php } ?>
+</body>
+</html>
+
+----------------------------------------------------
+
+
+
+
 
