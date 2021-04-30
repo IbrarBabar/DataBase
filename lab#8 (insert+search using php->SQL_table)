@@ -1,1 +1,76 @@
+insertion
+------------------------------
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+<?php if (isset($_GET['form_submitted'])){
+//this code is executed when the form is submitted
+?>
+<h2>Thank You <?php echo "For registring fastian"; ?>
+</h2>
+<p>You have been registered as
+ <?php echo "<br />"; ?>
+ <?php echo "ROLL_NO : " . $_GET['ROLL_NO'] . ' '. "NAME : " . $_GET['NAME'];?>
+ <?php echo "<br />"; ?>
+ <?php echo "Email : " . $_GET['Email'] . ' ' . "DEPARTMENT : " . $_GET['DEPARTMENT'] . ' 
+' . "CHOOSE_EVENT : " . $_GET['CHOOSE_EVENT'];
+ $username = 'root';
+ $password = '';
+ try {
+ $conn = new
+PDO("mysql:host=localhost;dbname=themepark", $username,
+$password);
+// set the PDO error mode to exception
+ $conn->setAttribute(PDO::ATTR_ERRMODE,
+PDO::ERRMODE_EXCEPTION);
+ echo "Connected successfully";
+ } catch (PDOException $e) {
+ echo "Connection failed: " . $e->getMessage();
+ }
+ $ROLL_NO = $_GET["ROLL_NO"];
+ $NAME = $_GET["NAME"];
+ $Email = $_GET["Email"];
+ $DEPARTMENT = $_GET["DEPARTMENT"];
+ $CHOOSE_EVENT = $_GET["CHOOSE_EVENT"];
+ $conn->query("insert into registration values('$ROLL_NO','$NAME','$Email','$DEPARTMENT','$CHOOSE_EVENT')");
+ ?>
 
+</p>
+<p>Go <a href="/lab8/lab8.php">back</a> to the
+form</p>
+<?php }
+else { ?>
+    <h2>Nutec'21 Event Registration For Fastians </h2>
+    <form action="lab8.php" method="GET">
+        ROLL_NO:
+        <input type="text" placeholder="ROLL_NO"
+               name="ROLL_NO">
+        <br>
+        NAME:
+        <input type="text" placeholder="NAME"
+               name="NAME">
+        <br> Email:
+        <input type="text" placeholder="Email"
+               name="Email">
+        <br>
+        DEPARTMENT:
+        <input type="text" placeholder="DEPARTMENT"
+               name="DEPARTMENT">
+        <br>
+        CHOOSE_EVENT:
+        <input type="text" placeholder="CHOOSE_EVENT"
+               name="CHOOSE_EVENT">
+        <input type="hidden" name="form_submitted"
+               value="1" />
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+<?php } ?>
+</body>
+</html>
+-----------------------------------
+searching
+---------------------------------------------------------------------------------------------
+---------------
