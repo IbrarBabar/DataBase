@@ -1,0 +1,44 @@
+Q)      why we switch from file processing system to database system
+
+ans::   No data duplication saves storage and improves access time.
+ ... Easy recovery: Since database systems keeps the backup of data,
+ it is easier to do a full recovery of data in case of a failure.
+ Flexible: Database systems are more flexible than file processing systems.
+
+===================
+
+Q) 	why we choose candidate key
+
+ans:: 	the main purpose of the candidate key is to help us to identify one single row in a table,
+ regardless of whether there exists billions of row. 
+This sets high demands on the flexibility in terms of delivering uniqueness.
+ In 2, we say that a candidate key always, without exception, must hold a value.
+
+=================
+
+Q) 	what is difference between entity integrity and referential integrity
+and:: 	Entity integrity describes a condition in which all tuples within a table are uniquely identified
+ by their primary key and NULL is not allowed. ... Referential integrity describes a condition in which a foreign key value
+ has a match in the corresponding table or in which the foreign key value is null.
+
+================
+
+Q) 	explain why the cascade key maintains the foreign key
+and) :: //A foreign key with cascade delete means that if a record in the parent table is deleted,
+ then the corresponding records in the child table will automatically be deleted.
+ This is called a cascade delete in SQL Server.
+//----------->  	The advantage of the ON DELETE CASCADE option is that it allows
+ you to reduce the quantity of SQL statements needed to perform delete actions.
+
+==================
+Q) self join 
+ self-join is a join that can be used to join a table with itself. Hence, it is a unary relation. 
+In a self-join, each row of the table is joined with itself and all the other rows of the same table. 
+Thus, a self-join is mainly used to combine and compare the rows of the same table in the database
+
+---
+SELECT a.column_name, b.column_name...
+FROM table1 a, table1 b
+WHERE a.common_field = b.common_field;
+
+==============

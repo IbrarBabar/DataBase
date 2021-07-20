@@ -1,0 +1,9 @@
+ “A database will be made to store information about 
+patients in a hospital. On arrival, each patient’s 
+personal details (name, address, and telephone number)
+ are recorded where possible, and they are given an admission 
+number. They are then assigned to a particular ward
+ (Accident and Emergency, Cardiology, Oncology, etc.).
+ In each ward, there are a number of doctors and nurses.
+ Each doctor and nurse may be involved with several patients at any given time.”
+

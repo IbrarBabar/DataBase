@@ -1,0 +1,99 @@
+mysql> source G:\4th Semester\DataBase_course\DB course Assignments\assign3.sql
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+Query OK, 0 rows affected (0.23 sec)
+
+Query OK, 0 rows affected (0.29 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+mysql> create index _Email on users(email);
+Query OK, 0 rows affected (0.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> create index _users on users(username,password);
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from users;
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| users |          0 | PRIMARY  |            1 | user_id     | A         |           4 |     NULL | NULL   |      | BTREE      |         |               |
+| users |          1 | _Email   |            1 | email       | A         |           4 |     NULL | NULL   | YES  | BTREE      |         |               |
+| users |          1 | _users   |            1 | username    | A         |           4 |     NULL | NULL   | YES  | BTREE      |         |               |
+| users |          1 | _users   |            2 | password    | A         |           4 |     NULL | NULL   | YES  | BTREE      |         |               |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE users 
+    -> DROP INDEX _Email,
+    -> DROP INDEX _users;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Terminal close -- exit!
+
+
+
+
+
+			
+					Q # (1(5))
+Unique Index:
+			A unique index ensures that the values in the index key columns are unique.
+Unique indexes are indexes that help maintain data integrity by ensuring that
+no two rows of data in a table have identical key values.
+When you create a unique index for an existing table with data, 
+values in the columns or expressions that comprise the index key are checked for uniqueness.
+
+Implicit Index:
+			Implicit indexes are are automatically created by the database server when an object is created.
+ Indexes are automatically created for primary key constraints and unique constraints. 
+An Implicit index (also known as a null-index) is an index that does not have a name.
+ For example:  a list (a 1-dimensional array). It arises in rare cases in a Definition that contains
+ a subexpression that generates a list of values. ...
+ It gives an error if you try to combine multiple arrays with implicit indexes.
+
+
+
+					Q#(2(1))
+
+Indexes are a powerful tool used in the background of a database to speed up querying.
+An index is a small table which contain usually two tables. The first column contains copy of primary key or candidate key of a table and second column contain a set of pointers for holding the address of the disk block where that specific key value stored.
+Indexes serve used for quicker retrieval. Indexing is very important to save time and effort of employees.
+
+
+If a table contain information of employees with their employee_ID.
+The information of all employees is going to be stored in Hard disk.
+Let say 1 block of Hard disk contain 5 employee_ID’s. Then for faster searching we use index table. Index table will contain the information of all employees by taking 1 block of Hard disk in 1 sparse location.
+So if total number of employees are 50.
+There are 5 blocks made in Hard disk and index table block will point 5 blocks of Hard disk. So the searching become fast and more efficient.
+
+
+
+					Q# (2(2))
+Yes, there is a slightly difference between them.
+SQL Server uses indexes on the table level and supports indexes on any column in the table.
+On the other hand, MongoDB uses indexes on the collection level and supports indexes on any field or sub-field of the documents in a MongoDB collection.
+Also SQL server support cluster index but MongoDB didn’t support cluster index.
+MongoDB support (index by default), but SQL server didn’t support (index by default) property.
+
+
+
+     Q# (2(3))
+
+The output shows that there are tow indexes in the collection.
+1st is “_id”.
+2nd is “name”.
+
+
