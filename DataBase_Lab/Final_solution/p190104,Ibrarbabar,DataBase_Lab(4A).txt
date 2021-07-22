@@ -1,0 +1,53 @@
+							NAME :: Ibrar Babar
+							Roll no. 19P-0104
+							DataBase Lab (4A)
+							Paper (odd)	
+							
+Q1
+1)  select b.id,b.name,count(r.bid) from boat b join reservation r on (b.id=r.bid) group by (b.id);
+2) select b.id,b.name from boat b join reservation r on (b.id=r.bid) where colour="red";
+3) select s.id,s.name,s.rating,s.age from sailor s join reservation r on (s.id=r.sid) join boat b on (r.bid=b.id) where colour="red";
+4) select max(r.bid),b.name,b.colour from boat b join reservation r on(b.id=r.bid);
+5) select s.id,s.name,s.rating,s.age from sailor s join reservation r on (s.id=r.sid) join boat b on (r.bid=b.id) where colour!="red";
+6) select name from boat where colour = "red";
+7) select b.id,b.name,b.colour from boat b join reservation r on(b.id=r.bid) join sailor s on (r.sid=s.id) where s.rating =8;
+8) select b.name from boat b join reservation r on (b.id=r.bid) join sailor s on (r.sid=s.id) where b.colour="red" and s.rating!=8;
+9) select count(b.id) from boat b join reservation r on (b.id=r.bid) join sailor s on (r.sid=s.id) where b.colour="red";
+10) select b.name from boat b join reservation r on (b.id=r.bid) join sailor s on (r.sid=s.id) where b.colour="red" and s.rating=8;
+11) select count(b.id) from boat b join reservation r on (b.id=r.bid) join sailor s on (r.sid=s.id) where  (select count(s.id));
+12) select count(b.id) from boat b join reservation r on (b.id=r.bid) join sailor s on (r.sid=s.id) where  (select count(s.id));
+13) select max(r.bid),b.name,b.colour from boat b join reservation r on(b.id=r.bid);
+14) 
+
+
+
+Q2
+1) select ename from emp where job="manager"  and salary between 1500 and 2500;
+2) select ename from emp where job="saleman" and (salary+commission)>2000;
+3) select ename from emp natural join dept where location = "New York";
+4) select location,avg(salary) from emp join dept using (deptno) group by location;
+5)  select ename from emp where job!="manager" and (salary+commission)>(select count(salary) from emp where job = "manager");
+6)  select ename, salary from emp natural join salgrade where grade=2;
+7)  select grade,ename,salary from emp natural join salgrade group by grade decs;
+8) select ename,location from dept natural join emp where salary>avg(salary);
+9) select * from dept join emp using deptno where job="manager";
+10) select ename from emp job="manager" and !deptno;
+11) select ename from emp where job="manager" or job="manager";
+12) select * from emp natural join dept where job!="manager" and job = "manager" haing location="new york";
+13) select ename,location from emp join dept using (deptno)  where location = "dollas" having min(salary);
+14) select max(salary) from emp join dept using (deptno) group by location;
+15)  select min(salary),dname from emp join dept using (deptno);
+16) select empno,ename,max(salary) from emp; 
+17) select * from emp where avg(salary)<salary;
+18) create view ibrar ( select ename from emp where count(job="manager"));
+
+
+
+Q3
+1) db.movies.find({year:{$gt:1965 or $lt:1970}}{title:1,year=1})
+2) db.movies.find({runtime:{$gt:180}},{"imdg.rating":{$gt:8}})
+3) db.movies.find({tagged:{$eq:"sport" or "Talk-Show" or "News" }}) 
+4) db.movies.find({"imdg.rating":{$gt:8.5}} or {rating:{$gt:85}})
+5) db.movies.find({history,war})
+
+
